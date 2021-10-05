@@ -1,94 +1,45 @@
-/*
-function getRandomNum(){
-    result = Math.floor(Math.random() * 30);
-    return result;
+ms = Date.now();
+console.log(ms + "ms");
+
+// minutes
+function minutes(){
+    secs = ms / 1000
+    mins = secs / 60
+    console.log(mins + "mins");
 }
 
-lcm1 = getRandomNum();
-lcm2 = getRandomNum();
-console.log(lcm1, lcm2);
+minutes();
 
-function maxMin(lcm1, lcm2) {
-    if (lcm1 > lcm2){
-        max = lcm1
-        min = lcm2
-    }
-    else if (lcm2 > lcm1){
-        max = lcm2
-        min = lcm1
-    }
-    console.log("ordered: " + max + "," + min);
+//hours
+function hours(){
+    hrs = mins / 60
+    console.log(hrs + "hrs");
 }
 
-lcmMax = lcm1*lcm2
-console.log(lcmMax)
+hours();
 
-function lcm(min, max) {
-  for (let i = 1;i < lcmMax;i++){
-    if(i % min === 0){
-      console.log("i is divisible by min")
-    }
-    else if (i % max === 0){
-      console.log("i is divisible by max")
-    }
-    else if (i % min === 0 && i % max === 0){
-      console.log("i is a common multiple of max and min")
-      } else {
-        console.log(i)
-      }
-  }
-}
-*/
-function getRandomNum(){
-    result = Math.floor(Math.random() * 50);
-    return result;
+//Years, Months, Days, Minutes, and Seconds.
+function dateTime(){
+    days = hrs / 24
+    months = days / 30.437
+    years = months / 12
+    console.log("approx time passed since January 1st, 1970 = " + years + "years, " + months + "months, " + days + "days, " + mins + "mintes and " + secs + "seconds.");
 }
 
-var n = getRandomNum();
-console.log("n is " + n);
-factors = [];
+dateTime();
 
-function prime(n) {
-    for (let i = 1; i < n+1; i++){
-    if (Number.isInteger(n/i)){
-      factors.push(i)
-    }
-  }
-  console.log("its factors:" + factors)
-  if (factors.indexOf(n) == 1){
-      console.log("true:" ++ n + "is a prime")
-    } else {
-        console.log("false:" + n + "is not a prime")
-    }
+//age
+let myAgeInMs = Date.now() - new Date("2003-01-13")
+console.log("I am " + myAgeInMs + " milliseconds old!")
+
+function ageInWeeks(){
+    ms = myAgeInMs
+    secs = ms / 1000
+    mins = secs / 60
+    hrs = mins / 60
+    days = hrs / 24
+    weeks = days / 7
+    console.log("... and I am " + weeks + " weeks old!")
 }
 
-prime(n);
-
-
-/*
-function getRandomNum(){
-    result = Math.floor(Math.random() * 50);
-    return result;
-}
-
-var n = getRandomNum();
-console.log("n is " + n);
-integers = [];
-
-function prime(n) {
-    for (let i = 1; i < (n+1); i++){
-      calc = n/i
-    if (Number.isInteger(calc)){
-      console.log("this gives an integer")
-      //integers.push(i)
-    }
-  }
-   console.log(integers)
-}
-
-if (integers.indexOf(n) == 1){
-      console.log("true")
-    }
-
-prime();
-*/
+ageInWeeks();
