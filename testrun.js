@@ -1,45 +1,45 @@
-ms = Date.now();
-console.log(ms + "ms");
-
-// minutes
-function minutes(){
-    secs = ms / 1000
-    mins = secs / 60
-    console.log(mins + "mins");
+function getRandomNum(){
+    result = Math.floor(Math.random() * 40);
+    return result;
 }
 
-minutes();
+gcd1 = getRandomNum();
+gcd2 = getRandomNum();
+console.log(gcd1, gcd2);
 
-//hours
-function hours(){
-    hrs = mins / 60
-    console.log(hrs + "hrs");
+factorsGcd1 = []
+for(let i = 1; i < (gcd1+1); i++){
+    if (Number.isInteger(gcd1/i)){
+        factorsGcd1.push(i)
+    }
 }
 
-hours();
-
-//Years, Months, Days, Minutes, and Seconds.
-function dateTime(){
-    days = hrs / 24
-    months = days / 30.437
-    years = months / 12
-    console.log("approx time passed since January 1st, 1970 = " + years + "years, " + months + "months, " + days + "days, " + mins + "mintes and " + secs + "seconds.");
+factorsGcd2 = []
+for(let i = 1; i < (gcd2+1); i++){
+    if (Number.isInteger(gcd2/i)){
+        factorsGcd2.push(i)
+    }
 }
 
-dateTime();
+let factors = factorsGcd1.concat(factorsGcd2);
+console.log(factors);
 
-//age
-let myAgeInMs = Date.now() - new Date("2003-01-13")
-console.log("I am " + myAgeInMs + " milliseconds old!")
+let orderedFactors = factors.sort((a, b) => a - b);
+console.log(orderedFactors);
 
-function ageInWeeks(){
-    ms = myAgeInMs
-    secs = ms / 1000
-    mins = secs / 60
-    hrs = mins / 60
-    days = hrs / 24
-    weeks = days / 7
-    console.log("... and I am " + weeks + " weeks old!")
+//go through orderedFactors and if a number occurs twice, put it into new array simFactors
+//simFactors = orderedFactors.filter(orderedFactors[n] == orderedFactors[n+1])
+simFactors = []
+function sim() {
+    for (n = 0; n < (orderedFactors.length+1); n++){
+        if (orderedFactors[n] == orderedFactors[n+1]){
+            simFactors.push(n)
+        }
+    }
 }
+//push and order into simF
+var gcd = simFactors.pop();
+console.log(gcd);
 
-ageInWeeks();
+// use entries for the fruit thing
+

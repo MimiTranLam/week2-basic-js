@@ -17,7 +17,7 @@ var radius = 7;
 console.log(typeof radius);
 var area = pi * radius ** 2;
 
-console.log("The area of a circle given the radius" + radius + "(m) is" + area + "(m^2)");
+console.log("The area of a circle given the radius" + " " + radius + "(m) is" + " " + area + "(m^2)");
 console.log(`The area of a circle given the radius ${radius}(m) is ${area} (m^2)`);
 
 /* Operators & Comparison
@@ -103,18 +103,6 @@ true: on the left returns false because not both of them are true, then false or
 /* Conditionals */
 var x = -10
 
-/*
-if(x >= 0) {
-  console.log(x + " " + "is a positive number.");
-}
-else if (x == 0){
-  console.log(x + " " + "is zero.");
-}
-if (x < 0) {
-  console.log(x + " " + "is a negative number.");
-}
-*/
-
 if(x > 0) {
 console.log(x + " " + "is a positive number.");
 }
@@ -125,39 +113,32 @@ if (x < 0) {
 console.log(x + " " + "is a negative number.");
 }
 
-/* Conditionals */
 // define variables a, b and c by generating a random number between range 0-99. they cannot equal to each other.
 function getRandomNum(){
-  result = Math.floor(Math.random() * 99);
-  return result;
+    result = Math.floor(Math.random() * 99);
+    return result;
 }
-
+  
 var a = getRandomNum()
 var b = getRandomNum()
 var c = getRandomNum()
-
+  
 console.log(a, b, c)
-
-abc = (a, b, c)
-
+  
 // loop fx/instructions until none are equal to each other?
-/*
-let n1 = a
-let n2 = b
-let n3 = c
-
-if (n1 == n2 || n1 == n3){
+// use the thing where you can look at a (0,1,2) and call by order ARRAY
+const abc = [a, b, c]
+  
+if (abc[0] == abc[1] || abc[0] == abc[3]){
     getRandomNum()
-    }
-if (n2 == n1 || n2 == n3){
+}
+if (abc[1] == abc[0] || abc[1] == abc[2]){
     getRandomNum()
-    }
-if (n3 == n1 || n3 == n1){
+}
+if (abc[2] == abc[0] || abc[2] == abc[1]){
     getRandomNum()
-    }
-*/
-
-// use the thing where you can look at a (0,1,2) and call by order
+}
+// is there a quicker method?
 
 function small(a, b, c) {
   if (a < b && a < c) {
@@ -172,7 +153,7 @@ function small(a, b, c) {
   return min
 }
 
-var min = small()
+var smallest = small()
 
 function big(a, b, c) {
   if (a > b && a > c) {
@@ -187,16 +168,28 @@ function big(a, b, c) {
   return max
 }
 
-var max = big()
+var largest = big()
 
+console.log(`${smallest} is the smallest number and ${largest} is the largest number out of a = ${a}, b = ${b} and c = ${c}.`)
 
-console.log(`${min} is the smallest number and ${max} is the largest number out of a = ${a}, b = ${b} and c = ${c}.`)
+const abc = [a, b, c]
 
 /* Loops */
-/* Functions 
-function wow() (
-  string = "wow it worked!"
-)
+/* Functions */
+// P1
+function wow(){
+    console.log("Wow, it worked!")
+}
 
-console.log(wow())
-*/
+// invocation. but not needed to be called. cuz javascript is magic.
+wow();
+
+// P2
+function movie(){
+    console.log("Arrival")
+}
+
+// P3
+function conditional(){
+
+}

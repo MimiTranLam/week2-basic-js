@@ -47,7 +47,72 @@ function ziffZubb(start, end){
 ziffZubb(1, 20);
 
 /* Greatest Common Divisor */
-// solution 1
+// solution 1 - finding max and min step by step
+function getRandomNum(){
+    result = Math.floor(Math.random() * 40);
+    return result;
+}
+
+gcd1 = getRandomNum();
+gcd2 = getRandomNum();
+
+if (gcd1 > gcd2){
+    max = gcd1
+    min = gcd2
+}
+else if (gcd2 > gcd1) {
+    max = gcd2
+    min = gcd1
+}
+console.log(max, min);
+
+function gcd(max, min){
+    for (r = max % min; r > 0;){
+        if (max % min == 0){
+            console.log("the GCF is: " + min);
+        } else {
+            r = max % min;
+            min = max;
+            r = min;
+        }
+    }
+    console.log("the GCF is: " + min);
+}
+
+gcd(max, min);
+
+//solution 2 - finding max and min with Array.sort
+function getRandomNum(){
+    result = Math.floor(Math.random() * 40);
+    return result;
+}
+
+a = getRandomNum();
+b = getRandomNum();
+console.log(a, b);
+
+var numArray = [a, b];
+    numArray = numArray.sort(function (a, b) {  return a - b;  });
+max = numArray[1]
+min = numArray[0]
+console.log(max, min);
+
+function gcd(max, min){
+    for (r = max % min; r > 0;){
+        if (max % min == 0){
+            console.log("the GCF is: " + min)
+        } else {
+            r = max % min;
+            min = max;
+            r = min;
+        }
+    }
+    console.log("the GCF is: " + min);
+}
+
+gcd(max, min);
+
+// solution 3 - without euclidian algorith, this one actually works...
 function getRandomNum(){
     result = Math.floor(Math.random() * 40);
     return result;
@@ -57,28 +122,65 @@ gcd1 = getRandomNum();
 gcd2 = getRandomNum();
 console.log(gcd1, gcd2);
 
-function gcd(gcd1, gcd2){
-  if (gcd1 > gcd2){
-        max = gcd1
-        min = gcd2
+factorsGcd1 = []
+for(let i = 1; i < (gcd1+1); i++){
+    if (Number.isInteger(gcd1/i)){
+        factorsGcd1.push(i)
     }
-    else if (gcd2 > gcd1) {
-        max = gcd2
-        min = gcd1
-    }
-    var r = max % min
-    console.log("the Greatest Common Denominator of the above numbers is:" + r)
 }
 
-gcd(gcd1, gcd2);
+factorsGcd2 = []
+for(let i = 1; i < (gcd2+1); i++){
+    if (Number.isInteger(gcd2/i)){
+        factorsGcd2.push(i)
+    }
+}
 
-//solution 2
-function gcd(gcd1, gcd2){
-    var numArray = [gcd1, gcd2];
-    numArray = numArray.sort(function (a, b) {  return a - b;  });
-      var r = Number(numArray[1] % numArray[0]);
-      console.log("the Greatest Common Denominator of the above numbers is:" + r)
+let factors = factorsGcd1.concat(factorsGcd2);
+let orderedFactors = factors.sort((a, b) => a - b);
+console.log(orderedFactors);
+
+//go through orderedFactors and if a number occurs twice, put its position into new array simFactors
+//simFactors = orderedFactors.filter(orderedFactors[n] == orderedFactors[n+1])
+simFactors = []
+function sim() {
+  for (n = 0; n < (orderedFactors.length); n++){
+    if (orderedFactors[n] === orderedFactors[n+1]){
+      simFactors.push(n)
+    }
   }
+  console.log(simFactors);
+}
+sim();
+//pop
+
+function gcd(){
+  position = simFactors.pop();
+  gcd = orderedFactors[position];
+  console.log(gcd);
+}
+gcd();
+
+/* Lowest Common Multiple */
+function getRandomNum(){
+    result = Math.floor(Math.random() * 40);
+    return result;
+}
+
+var lcm1 = getRandomNum();
+lcm2 = getRandomNum();
+console.log(lcm1, lcm2);
+
+function lcm(lcm1, lcm2){
+  for (i = 1; i < Infinity; i++){
+    if (i % lcm1 == 0 && i % lcm2 == 0){
+      return i;
+      console.log(`LCM of ${lcm1} and ${lcm2} is ${i}.`);
+    }
+  }
+}
+
+lcm(lcm1, lcm2);
 
 /* Prime number */
 function getRandomNum(){
@@ -98,7 +200,7 @@ function prime(n) {
   }
   console.log("its factors:" + factors)
   if (factors.indexOf(n) == 1){
-      console.log("true:" ++ n + "is a prime")
+      console.log("true:" + n + "is a prime")
     } else {
         console.log("false:" + n + "is not a prime")
     }
@@ -152,3 +254,64 @@ function ageInWeeks(){
 }
 
 ageInWeeks();
+
+/* Advanced Random Number */
+// Get random int
+// P1
+var random = []
+
+for (i = 1; i < 6; i++){
+  num = Math.random()
+  random.push(num)
+}
+
+console.log(random)
+
+// P2
+function getRandomInt(){
+    for (i = i; i < 101; i++){
+      zeroToTen = Math.floor(Math.random() * 10);
+      console.log(zeroToTen);
+    }
+}
+  
+getRandomInt();
+
+// P3
+var start = Math.floor(Math.random() * 100);
+var end = Math.floor(Math.random() * 100);
+
+var numArray = [start, end];
+    numArray = numArray.sort(function (a, b) {  return a - b;  });
+
+range = numArray[1] - numArray [0]
+console.log(numArray + " has range: " + range)
+
+function getRandomInt(){
+  randBetween = Math.floor(Math.random() * (numArray[1] - numArray[0]) + 1) + numArray[0];
+  console.log(randBetween)
+}
+
+getRandomInt();
+
+// Get random item
+// P1
+var arr = ["apple", "orange", "kiwi"]
+
+function getRandomItem(arr){
+  n = Math.floor(Math.random() * 3);
+  return arr[n];
+}
+
+console.log(getRandomItem(arr));
+
+// P2
+var arr = ["apple", "orange", "kiwi"]
+
+function getRandomInt(){
+  n = Math.round(Math.random() * (arr.length - 1) + 1) + 1;
+  item = arr[n]
+  console.log(n);
+}
+
+console.log(getRandomInt());
