@@ -1,45 +1,22 @@
-function getRandomNum(){
-    result = Math.floor(Math.random() * 40);
-    return result;
-}
+//Write a function that takes a number n as an argument and print out the following:
+n = 4
 
-gcd1 = getRandomNum();
-gcd2 = getRandomNum();
-console.log(gcd1, gcd2);
-
-factorsGcd1 = []
-for(let i = 1; i < (gcd1+1); i++){
-    if (Number.isInteger(gcd1/i)){
-        factorsGcd1.push(i)
+function loops1(n){
+  a = [];
+  for(var l = 1; l < (n+1); l++){
+    a.push(l);
+    for(var m = 1; m < (n+1); m++){
+    a.push(m);
+    for(var j = 1; n < (n+1); n++){
+    a.push(j);
+    for(var o = 1; o < (n+1); o++){
+    a.push(o);
     }
-}
-
-factorsGcd2 = []
-for(let i = 1; i < (gcd2+1); i++){
-    if (Number.isInteger(gcd2/i)){
-        factorsGcd2.push(i)
     }
-}
-
-let factors = factorsGcd1.concat(factorsGcd2);
-console.log(factors);
-
-let orderedFactors = factors.sort((a, b) => a - b);
-console.log(orderedFactors);
-
-//go through orderedFactors and if a number occurs twice, put it into new array simFactors
-//simFactors = orderedFactors.filter(orderedFactors[n] == orderedFactors[n+1])
-simFactors = []
-function sim() {
-    for (n = 0; n < (orderedFactors.length+1); n++){
-        if (orderedFactors[n] == orderedFactors[n+1]){
-            simFactors.push(n)
-        }
     }
+  }
+  result = a.join(" ");
+  console.log(result);
 }
-//push and order into simF
-var gcd = simFactors.pop();
-console.log(gcd);
 
-// use entries for the fruit thing
-
+loops1(n);

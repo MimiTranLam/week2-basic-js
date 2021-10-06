@@ -284,12 +284,12 @@ var end = Math.floor(Math.random() * 100);
 var numArray = [start, end];
     numArray = numArray.sort(function (a, b) {  return a - b;  });
 
-range = numArray[1] - numArray [0]
-console.log(numArray + " has range: " + range)
+//range = numArray[1] - numArray [0]
+//console.log(numArray + " has range: " + range)
 
 function getRandomInt(){
   randBetween = Math.floor(Math.random() * (numArray[1] - numArray[0]) + 1) + numArray[0];
-  console.log(randBetween)
+  console.log(randBetween);
 }
 
 getRandomInt();
@@ -309,9 +309,44 @@ console.log(getRandomItem(arr));
 var arr = ["apple", "orange", "kiwi"]
 
 function getRandomInt(){
-  n = Math.round(Math.random() * (arr.length - 1) + 1) + 1;
-  item = arr[n]
-  console.log(n);
+  randBetween = Math.floor(Math.random() * (arr.length - 1));
+  console.log(randBetween);
+  item = arr[randBetween];
+  console.log(item);
 }
 
-console.log(getRandomInt());
+getRandomInt();
+
+/* Nested Loops */
+// note
+for (var i = 0; i < 10; i++) {
+    var s = "";
+    for (var j = 0; j < 10; j++) {
+      s = `${s} outer ${i} inner ${j}`;
+    }
+    console.log(s);
+  }
+
+// when i increases its value by one from 0 to 9 OR for loop starts with i at zero, loop ends when i is less than 10, i increases its value by 1 each loop cycle
+// s is a string
+// when j increases its value by one from 0 to 9 OR for loop starts at zero, loop ends when i is less than 10, i increases its value by 1 each loop cycle
+// put inside s string "variable s(space) outer variable i(number of outer loop cycles done) inner variable j(number of inner loop cycles done)
+// inner loop run 9 times in one outer loop cycle
+
+//P1
+n = 10
+
+function loops1(n){
+  s = [];
+  for(var i = 1; i < n; i++){
+    t = i - 1;
+    s.push(i);
+    for(var j = 1; j < t; j++){
+    s.push(i);
+    }
+  }
+  result = s.join(" ");
+  console.log(result);
+}
+
+loops1(n);
