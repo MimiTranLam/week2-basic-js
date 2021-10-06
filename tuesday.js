@@ -193,7 +193,7 @@ console.log("n is " + n);
 factors = [];
 
 function prime(n) {
-    for (let i = 1; i < n+1; i++){
+  for (let i = 1; i < n+1; i++){
     if (Number.isInteger(n/i)){
       factors.push(i)
     }
@@ -333,7 +333,7 @@ for (var i = 0; i < 10; i++) {
 // put inside s string "variable s(space) outer variable i(number of outer loop cycles done) inner variable j(number of inner loop cycles done)
 // inner loop run 9 times in one outer loop cycle
 
-//P1
+// P1
 n = 5
 
 function loops1(n){
@@ -348,5 +348,121 @@ function loops1(n){
 }
 
 loops1(n);
+// for condition = number of rows and columns
+// outer loop = row
+// inner loop = col
+// a.push value controls number displayed - can I manipulate this to control when the number changes?
+// j < i will give (n+1) of cols and rows
+
+// P2
+
+// P3
+n = 8
+
+function loops1(n){
+  a = [];
+  for(var i = 1; i < n; i++){
+    for(var j = 1; j < n; j++){
+      for (var k = 1; k < n; k++)
+    a.push('#');
+    result = a.join(" ");
+    console.log(result);
+    }
+  }
+}
+
+loops1(n);
 
 
+var fruits = ["apples", "oranges", "bananas"];
+
+function listFruits() {
+  for (var i = 0; i < fruits.length; i++) {
+    console.log("I have some " + fruits[i]);
+  }
+}
+listFruits();
+
+/* Iterate Over Arrays */
+// P1
+var workingHours = [6, 6, 7, 7, 8, 8, 6, 7, 8, 7];
+
+function daily(){
+  for (var i = 0; i < workingHours.length; i++) {
+    pay = 25 * workingHours[i];
+    console.log("Peter earned $" + pay + " today!");
+  }
+}
+daily();
+
+// P2
+function payArr(){
+  payTotal = [];
+  const wage = 25;
+  for (i = 0; i < workingHours.length; i++) {
+    pay = wage * workingHours[i];
+    payTotal.push(pay);
+  }
+  console.log(payTotal);
+}
+payArr();
+
+function twoWeeks(){
+  sumPayTotal = 0;
+  for (i = 0; i < payTotal.length; i++){
+    sumPayTotal += payTotal[i];
+  }
+  console.log("$" + sumPayTotal + " earned in two weeks.");
+}
+twoWeeks();
+
+// P3
+workingDays = 5
+workingWeeks = 50
+
+hours = []
+function avgHours(){
+  for (i = 0; i < (workingDays * workingWeeks); i++) {
+    random = Math.round(Math.random() * (8 - 6)) + 6;
+    hours.push(random);
+  }
+  console.log(hours);
+}
+avgHours();
+
+function payArr(){
+  payDay = [];
+  wage = 25;
+  for (i = 0; i < (workingDays * workingWeeks); i++){
+    pay = wage * hours[i];
+    payDay.push(pay);
+  }
+}
+payArr();
+
+sumPayTotal = 0;
+function yearly(){
+  for (i = 0; i < payDay.length; i++){
+    sumPayTotal += payDay[i];
+  }
+  console.log("His estimate yearly salary is $" + sumPayTotal);
+}
+yearly();
+
+/* Truthy/Falsy */
+// P1
+const one = 1
+
+if (one) {
+  console.log("Is truthy");
+}
+// will display because if statement has a condition
+
+const zero = 0
+
+if (zero) {
+  console.log("Is truthy");
+} else {
+  console.log("Is falsy");
+}
+// will display both truthy and falsy because both if and else has conditions that are true
