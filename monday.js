@@ -142,13 +142,13 @@ if (abc[2] == abc[0] || abc[2] == abc[1]){
 
 function small(a, b, c) {
   if (a < b && a < c) {
-    a = min
+    min = a
   }
   if (b < a && b < c) {
-    b = min
+    min = b
   }
   if (c < a && c < b) {
-    c = min
+    min = c
   }
   return min
 }
@@ -157,13 +157,13 @@ var smallest = small()
 
 function big(a, b, c) {
   if (a > b && a > c) {
-    a = max
+    max = a
   }
   if (b > a && b > c) {
-    b = max
+    max = b
   }
   if (c > a && c > b) {
-    c = max
+    max = c
   }
   return max
 }
@@ -172,24 +172,188 @@ var largest = big()
 
 console.log(`${smallest} is the smallest number and ${largest} is the largest number out of a = ${a}, b = ${b} and c = ${c}.`)
 
-const abc = [a, b, c]
-
 /* Loops */
+// P1
+function getRandomNum(){
+  result = Math.floor(Math.random() * 10);
+  return result;
+}
+
+var a = getRandomNum();
+var b = getRandomNum();
+console.log(a,b)
+
+if (a > b){
+  max = a;
+  min = b;
+} else if (b > a){
+  max = b;
+  min = a;
+};
+console.log(max,min);
+
+function steps(){
+  s = "";
+  for (var i = min; i <= max; i++){
+  s += `${i} `;
+  }
+  console.log(s)
+}
+steps();
+
+// P2
+function getRandomNum(){
+  result = Math.floor(Math.random() * 999);
+  return result;
+}
+
+x = getRandomNum();
+y = getRandomNum();
+console.log(x,y);
+
+if (x > y){
+  max = x;
+  min = y;
+} else if (y > x){
+  max = y;
+  min = x;
+};
+console.log(max,min);
+
+sum = 0;
+for (i = min; i <= max; i++){
+  sum += i; 
+};
+console.log("Sum of numbers from 1 to 800 is: " + sum);
+
+// P3
+function getRandomNum(){
+  result = Math.round(Math.random() * (10000 - 1000) + 1) + 1000;
+  return result;
+}
+
+var input = getRandomNum();
+var digits = `${input}`;
+console.log(digits.charAt(0) + digits.charAt(1) + digits.charAt(2) + digits.charAt(3));
+
 /* Functions */
 // P1
+
 function wow(){
     console.log("Wow, it worked!")
 }
-
-// invocation. but not needed to be called. cuz javascript is magic.
 wow();
 
 // P2
 function movie(){
     console.log("Arrival")
 }
+movie();
 
 // P3
-function conditional(){
+name = "Mimi"
 
+function middle(name){
+  const sentence = "This is a something sentence.";
+  var newSentence = sentence.replace("something", name);
+  console.log(newSentence);
 }
+
+middle(name);
+
+// P4
+a = "3"
+b = "2"
+c = "1"
+
+function conditional(a,b,c){
+  const sentence = "... is the smallest number, and ... is the biggest number between a = ...,b = ..., and c = ...";
+  var newSent1 = sentence.slice(3, 32);
+  var newSent2 = sentence.slice(35, 74);
+  var newSent3 = sentence.slice(75, 92);
+  var newSent4 = sentence.slice(93, 104);
+  newSentence = c + newSent1 + a + newSent2 + a + newSent3 + b + newSent4 + c;
+  console.log(newSentence);
+}
+
+conditional(a,b,c);
+
+// P5
+function getRandomNum(){
+  result = Math.floor(Math.random() * 10);
+  return result;
+}
+
+var n1 = getRandomNum();
+var n2 = getRandomNum();
+
+if (n1 > n2){
+  a = n1;
+  b = n2;
+  } else if (n2 > n1){
+    a = n2;
+    b = n1;
+    };
+
+maxMin();
+console.log(a,b);
+
+function seriesOfNumber(a,b){
+  s = "";
+  for (var i = b; i <= a; i++){
+  s += `${i} `;
+  }
+  console.log(s)
+}
+seriesOfNumber(a,b);
+
+// P6
+
+function steps(){
+  s = "";
+  for (var i = min; i <= max; i++){
+  s += `${i} `;
+  }
+  console.log(s)
+}
+steps();
+
+// P7
+start = 1969
+end = 2020
+leaps = []
+function getLeapYears(start, end){
+  for (i = start; i <= end; i++){
+    if (i % 4 === 0 && i % 100 !== 0){
+    leaps.push(i);
+    }
+  }
+  console.log(leaps);
+}
+getLeapYears(start, end)
+
+/* Swapping Values */
+a = 111;
+b = 999;
+
+console.log("a = " + a + " b = " + b);
+
+let temp;
+
+temp = a;
+a = b;
+b = temp;
+
+console.log("now a has value, " + a + " now b has value " + b);
+
+/* Random Number */
+function play(){
+  const randomNumber = Math.round(Math.random());
+  if (randomNumber == 0){
+    console.log("Yes");
+  } else if (randomNumber == 1){
+    console.log("No");
+  }
+}
+
+play();
