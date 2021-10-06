@@ -334,16 +334,18 @@ for (var i = 0; i < 10; i++) {
 // inner loop run 9 times in one outer loop cycle
 
 //P1
-n = 10
+n = 5
 
 function loops1(n){
-  for(var i = 1; i < (n+1); i++){
-    t = i-1
-    console.log(i, j);
-    for(var j = 1; j < t; j++){
+  a = [];
+  for(var i = 1; i < n; i++){
+    a.push(n);
+    for(var j = 1; j < n; j++){
+    result = a.join(" ");
+    console.log(result);
     }
-
   }
 }
 
 loops1(n);
+
