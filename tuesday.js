@@ -339,8 +339,8 @@ n = 5
 function loops1(n){
   a = [];
   for(var i = 1; i < n; i++){
-    a.push(n);
     for(var j = 1; j < n; j++){
+    a.push(i);
     result = a.join(" ");
     console.log(result);
     }
