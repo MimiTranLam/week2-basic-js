@@ -340,7 +340,7 @@ function loops1(n){
   a = [];
   for(var i = 1; i < n; i++){
     for(var j = 1; j < n; j++){
-    a.push(j);
+    a.push(a.length + 1);
     result = a.join(" ");
     console.log(result);
     }
@@ -348,4 +348,5 @@ function loops1(n){
 }
 
 loops1(n);
+
 
