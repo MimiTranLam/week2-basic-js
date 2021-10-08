@@ -1,33 +1,53 @@
+console.log("hello from js");
+
 const canvas = document.getElementById("myCanvas");
-const ctx = canvas.getContext("2d");
+
 canvas.width = 500;
 canvas.height = 500;
 const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEIGHT = canvas.height;
-const CHARACTER_W = 50;
-const CHARACTER_H = 50;
-var characterX = CANVAS_WIDTH / 2 - CANVAS_HEIGHT / 2;
-var characterY = CANVAS_WIDTH / 2 - CANVAS_HEIGHT / 2;
+var characterW = 50;
+const CHARACTER_H = 100;
 
-ctx.fillStyle = "blue"; // selecting paint color
-ctx.fillRect(characterX, characterY, CHARACTER_W, CHARACTER_H); // center location x = 0, y = 0
-for (let i = 0; i < array.length; i++) {}
-function update(){
-    // characterX += 50;
-    // characterY += 50;
-    characterX += Math.floor(Math.randon() * CANVAS_WIDTH);
-    characterY += Math.floor(Math.randon() * CANVAS_WIDTH);
+var characterX = CANVAS_WIDTH / 2 - characterW / 2;
+var characterY = CANVAS_HEIGHT / 2 - CHARACTER_H / 2;
+
+const ctx = canvas.getContext("2d");
+
+ctx.fillStyle = "grey"; // selecting paint color
+ctx.fillRect(characterX, characterY, 200, CHARACTER_H); // center location x = 0 , y =0 , w=50 , h=50 it is a rectangle // center location x = 0 , y =0 , w=50 , h=50 it is a rectangle
+var progress = 0;
+
+var isGameOver = false;
+
+function update() {
+  if (characterW >= 200 || case1 || case2 || win) {
+    isGameOver = true;
+  }
+
+  characterW += 1; //update charx
+  console.log("update x ", characterX);
+  // characterY = Math.floor(Math.random() * (CANVAS_HEIGHT - CHARACTER_H)); // update chary
+  console.log("update y ", characterY);
+  progress += 1;
 }
 
-function draw(){
-    ctx.fillStyle = "red";
-    ctx.fillRect(characterX, characterY, CHARACTER_W, CHARACTER_H);
+function draw() {
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  ctx.fillStyle = "grey"; // selecting paint color
+  ctx.fillRect(characterX, characterY, 200, CHARACTER_H);
+  ctx.fillStyle = "green"; // selecting paint color
+  ctx.fillRect(characterX, characterY, characterW, CHARACTER_H);
+
+  ctx.font = "28px serif";
+  ctx.fillText(`Progress: ${progress}%`, 100, 100);
 }
 
-function main(){
+function main() {
+  if (!isGameOver) {
     update();
     draw();
+  }
 }
 
-setInterval(main, 1500);
-
+// setInterval(main, 50);
