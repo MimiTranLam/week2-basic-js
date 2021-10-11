@@ -130,43 +130,22 @@ document
   .addEventListener("click", changeToURL);
 
 // P11 - Add some typewriteing when the next box is clicked.
-/*
-const word = ["b", "l", "a", "h", " "]
-const word2 = ["b", "l", "a", "s", "p", "h", "e", "m", "y", " "]
-
-letter = -1
-function type() {
-    for (letterN = 1; letterN < word.length; letter++){
-        letters = word[letterN];
-        document.getElementById("typewrite").append(letters);
-    }
-}
-
-document
-    .getElementById("typewrite")
-    .addEventListener("click", type);
-
-setTimeout(type, 150);
-// ----------------------
 const word = ["b", "l", "a", "s", "p", "h", "e", "m", "y", " "];
-
 let i = 0;
-
 function startTyping() {
-  while (i < word.length) {
+  if (i < word.length) {
+    var typeLetter = word[i];
+    document.getElementById("typewrite").append(typeLetter);
     i++;
-    var letterIs = i;
-    setTimeout(() => {
-      typeLetter = word[letterIs];
-      document.getElementById("typewrite").append(typeLetter);
-    }, 150);
   }
 }
 
-document.getElementById("typewrite").addEventListener("click",startTyping);
-*/
+setInterval(startTyping, 350);
+
+// document.getElementById("typewrite").addEventListener("click", startTyping);
 
 // P11 - teacher's solution
+/*
 function startTyping() {
   var text = "blashemy";
   var index = 0,
@@ -182,20 +161,20 @@ function startTyping() {
     }
   }
   
-  setInterval(typing, 150);
+setInterval(typing, 150);
+*/
+
+/* Magic-8-Ball */
+const yes = ["Yes!", "Sure!", "Of course!"];
+const no = ["No way!", "Never!", "Not a chance!"];
   
-  /* Magic-8-Ball */
-  /*
-  const yes = ["Yes!", "Sure!", "Of course!"];
-  const no = ["No way!", "Never!", "Not a chance!"];
-  
-  function getRandomItem() {
-    arr = Math.round(Math.random() * (2-1+1)) + 1;
-    if (arr = 1) {
-    item = Math.round(Math.random() * 2);
-    document.getElementById("magic-9-ball").innerHTML = yes[item];
-    } else if (arr = 2) {
-    item = Math.round(Math.random() * 2);
-    document.getElementById("magic-9-ball").innerHTML = no[item];
-   }
-  
+function getRandomItem() {
+  arr = Math.round(Math.random() * (2-1+1)) + 1;
+  if (arr = 1) {
+  item = Math.round(Math.random() * 2);
+  document.getElementById("magic-9-ball").innerHTML = yes[item];
+  } else if (arr = 2) {
+  item = Math.round(Math.random() * 2);
+  document.getElementById("magic-9-ball").innerHTML = no[item];
+ }
+}
