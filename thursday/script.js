@@ -130,7 +130,9 @@ document
   .addEventListener("click", changeToURL);
 
 // P11 - Add some typewriteing when the next box is clicked.
+/*
 const word = ["b", "l", "a", "h", " "]
+const word2 = ["b", "l", "a", "s", "p", "h", "e", "m", "y", " "]
 
 letter = -1
 function type() {
@@ -145,3 +147,23 @@ document
     .addEventListener("click", type);
 
 setTimeout(type, 500);
+*/
+
+// P12 - teacher's solution
+function startTyping() {
+  var text = "blashemy";
+  var index = 0,
+  var temp = "";
+  function type() {
+    temp += text[index];
+    index++;
+    typeBox.innerHTML = temp;
+    if (index > text.legnth) {
+      index = 0;
+      temp = "",
+      return;
+    }
+  }
+  
+  setInterval(typing, 100);
+  
