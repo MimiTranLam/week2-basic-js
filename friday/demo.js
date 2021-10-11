@@ -21,7 +21,7 @@ var progress = 0;
 var isGameOver = false;
 
 function update() {
-  if (characterW >= 200) {
+  if (characterW >= 200 || case1 || case2 || win) {
     isGameOver = true;
   }
 
@@ -50,4 +50,4 @@ function main() {
   }
 }
 
-// setInterval(main, 50);
+setInterval(main, 50);

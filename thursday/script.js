@@ -31,18 +31,19 @@ const color = [
     "Salmon",
 ]
 
-let colorCount = 0
+let colorCount = -1
 
 function changeThirdBox(){
-  document.getElementById("change-color").style.backgroundColor = color[colorCount];
-  document.getElementById("change-color").innerHTML = color[colorCount];
-  colorCount++
-  if (colorCount > color.length - 1){
-    colorCount = 0;
-  }
+    colorCount++
+    if (colorCount < color.length){
+        document.getElementById("change-color").style.backgroundColor = color[colorCount];
+        document.getElementById("change-color").innerHTML = color[colorCount];
+    } else if (colorCount = color.length + 1){
+        colorCount = -1;
+    }
 }
 
-setInterval(changeThirdBox, 1000);
+setInterval(changeThirdBox, 3000);
 
 // P4 - Increment the count in the next box when when clicked.
 let clickCount = 0
@@ -151,7 +152,6 @@ function startTyping(){
   }
 }
 
-
 // class getLetter {
 //   startTyping(){
 //     while (i <= word.length){
@@ -186,7 +186,6 @@ function startTyping(){
 }
 
 setTimeout(startTyping, 100);
-
 
 document
     .getElementById("typewrite")
