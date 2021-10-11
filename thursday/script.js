@@ -130,24 +130,26 @@ document
   .addEventListener("click", changeToURL);
 
 // P11 - Add some typewriteing when the next box is clicked.
-const word = ["b", "l", "a", "s", "p", "h", "e", "m", "y", " "];
-let i = 0;
-function startTyping() {
-  if (i < word.length) {
-    var typeLetter = word[i];
-    document.getElementById("typewrite").append(typeLetter);
+function startTyping(){
+  const word = [" ", "b", "l", "a", "s", "p", "h", "e", "m", "y", " "];
+  let i = 0;
+  setInterval(type, 350);
+  function type() {
+    if (i < word.length) {
+      var typeLetter = word[i];
+      document.getElementById("typewrite").append(typeLetter);
+    }
     i++;
+    return;
   }
 }
 
-setInterval(startTyping, 350);
-
-// document.getElementById("typewrite").addEventListener("click", startTyping);
+document.getElementById("typewrite").addEventListener("click", startTyping);
 
 // P11 - teacher's solution
 /*
 function startTyping() {
-  var text = "blashemy";
+  var text = "blashemy ";
   var index = 0,
   var temp = "";
   function type() {
@@ -161,20 +163,30 @@ function startTyping() {
     }
   }
   
-setInterval(typing, 150);
+setInterval(type, 150);
 */
 
 /* Magic-8-Ball */
 const yes = ["Yes!", "Sure!", "Of course!"];
 const no = ["No way!", "Never!", "Not a chance!"];
-  
+
 function getRandomItem() {
-  arr = Math.round(Math.random() * (2-1+1)) + 1;
-  if (arr = 1) {
-  item = Math.round(Math.random() * 2);
-  document.getElementById("magic-9-ball").innerHTML = yes[item];
-  } else if (arr = 2) {
-  item = Math.round(Math.random() * 2);
-  document.getElementById("magic-9-ball").innerHTML = no[item];
- }
+  var arr = Math.round(Math.random() * (2-1)) + 1;
+  console.log("arr = " + arr);
+    if (arr === 1) {
+      item = Math.round(Math.random() * 2);
+      console.log(item);
+      console.log(yes[item]);
+      luck = yes[item];
+      document.getElementById("magic-8-ball").innerHTML = luck;
+      } else if (arr === 2) {
+        item = Math.round(Math.random() * 2);
+        console.log(item);
+        console.log(no[item]);
+        luck = no[item];
+        document.getElementById("magic-8-ball").innerHTML = luck;
+     }
 }
+
+document.getElementById("magic-8-ball").addEventListener("click", getRandomItem);
+
