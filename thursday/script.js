@@ -146,10 +146,27 @@ document
     .getElementById("typewrite")
     .addEventListener("click", type);
 
-setTimeout(type, 500);
+setTimeout(type, 150);
+// ----------------------
+const word = ["b", "l", "a", "s", "p", "h", "e", "m", "y", " "];
+
+let i = 0;
+
+function startTyping() {
+  while (i < word.length) {
+    i++;
+    var letterIs = i;
+    setTimeout(() => {
+      typeLetter = word[letterIs];
+      document.getElementById("typewrite").append(typeLetter);
+    }, 150);
+  }
+}
+
+document.getElementById("typewrite").addEventListener("click",startTyping);
 */
 
-// P12 - teacher's solution
+// P11 - teacher's solution
 function startTyping() {
   var text = "blashemy";
   var index = 0,
@@ -165,5 +182,20 @@ function startTyping() {
     }
   }
   
-  setInterval(typing, 100);
+  setInterval(typing, 150);
+  
+  /* Magic-8-Ball */
+  /*
+  const yes = ["Yes!", "Sure!", "Of course!"];
+  const no = ["No way!", "Never!", "Not a chance!"];
+  
+  function getRandomItem() {
+    arr = Math.round(Math.random() * (2-1+1)) + 1;
+    if (arr = 1) {
+    item = Math.round(Math.random() * 2);
+    document.getElementById("magic-9-ball").innerHTML = yes[item];
+    } else if (arr = 2) {
+    item = Math.round(Math.random() * 2);
+    document.getElementById("magic-9-ball").innerHTML = no[item];
+   }
   
