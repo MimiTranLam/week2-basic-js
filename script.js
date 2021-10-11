@@ -131,7 +131,7 @@ document
 
 // P11 - Add some typewriteing when the next box is clicked.
 function startTyping(){
-  const word = [" ", "b", "l", "a", "s", "p", "h", "e", "m", "y", " "];
+  const word = [" ", "b", "l", "a", "s", "p", "h", "e", "m", "y", "!"];
   let i = 0;
   setInterval(type, 350);
   function type() {
