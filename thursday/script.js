@@ -130,76 +130,62 @@ document
   .addEventListener("click", changeToURL);
 
 // P11 - Add some typewriteing when the next box is clicked.
-const word = [" ", "b", "l", "a", "s", "p", "h", "e", "m", "y"]
-
-// function type(){
-//   console.log(i);
-//   typeLetter = word[i];
-//   document.getElementById("typewrite").append(typeLetter);
-// }
-
-let i = -1;
-
 function startTyping(){
-  while (i <= word.length){
-    this.i = i++;
-    var letterIs = this.i
-    setTimeout(() => {
-      typeLetter = word[letterIs.i];
+  const word = [" ", "b", "l", "a", "s", "p", "h", "e", "m", "y", " "];
+  let i = 0;
+  setInterval(type, 350);
+  function type() {
+    if (i < word.length) {
+      var typeLetter = word[i];
       document.getElementById("typewrite").append(typeLetter);
-    }, 100);
-    // setTimeout(type, 100);
+    }
+    i++;
+    return;
   }
 }
 
-// class getLetter {
-//   startTyping(){
-//     while (i <= word.length){
-//       setTimeout(type, 100);
-//       i++;
-//     }
-//     return i;
-//   }
-// }
+document.getElementById("typewrite").addEventListener("click", startTyping);
 
-// function type(){
-//   console.log(getLetter.startTyping());
-//   letterIs = getLetter.startTyping()
-//   typeLetter = word[i];
-//   document.getElementById("typewrite").append(typeLetter);
-// }
-
-document
-    .getElementById("typewrite")
-    .addEventListener("click", startTyping);
-
+// P11 - teacher's solution
 /*
-let i = 0
-
-function startTyping(){
-  typeLetter = word[i];
-  document.getElementById("typewrite").append(typeLetter);
-  i++;
-  if (i > word.length - 1){
-    i = 0;
+function startTyping() {
+  var text = "blashemy ";
+  var index = 0,
+  var temp = "";
+  function type() {
+    temp += text[index];
+    index++;
+    typeBox.innerHTML = temp;
+    if (index > text.legnth) {
+      index = 0;
+      temp = "",
+      return;
+    }
   }
-}
-
-setTimeout(startTyping, 100);
-
-document
-    .getElementById("typewrite")
-    .addEventListener("click", startTyping);
+  
+setInterval(type, 150);
 */
 
 /* Magic-8-Ball */
-/*
 const yes = ["Yes!", "Sure!", "Of course!"];
 const no = ["No way!", "Never!", "Not a chance!"];
 
-function getRandomItem(arr) {
-  item = Math.round(Math.random() * 3);
-  message = yes[item];
-  document.getElementById("magic-8-ball").innerHTML = getRandomItem(message);
+function getRandomItem() {
+  var arr = Math.round(Math.random() * (2-1)) + 1;
+  console.log("arr = " + arr);
+    if (arr === 1) {
+      item = Math.round(Math.random() * 2);
+      console.log(item);
+      console.log(yes[item]);
+      luck = yes[item];
+      document.getElementById("magic-8-ball").innerHTML = luck;
+      } else if (arr === 2) {
+        item = Math.round(Math.random() * 2);
+        console.log(item);
+        console.log(no[item]);
+        luck = no[item];
+        document.getElementById("magic-8-ball").innerHTML = luck;
+     }
 }
-*/
+
+document.getElementById("magic-8-ball").addEventListener("click", getRandomItem);
