@@ -466,6 +466,3 @@ if (zero) {
   console.log("Is falsy");
 }
 // will display both truthy and falsy because both if and else has conditions that are true
-
-
-

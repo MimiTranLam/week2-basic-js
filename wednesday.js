@@ -28,7 +28,6 @@ console.log(oddNumbers);
 
 /* Arrays */
 // P1
-/*
 const programmers = [];
 
 programmers[0] = "Bill";
@@ -49,7 +48,6 @@ console.log(techCompanies);
 
 /* Array Methods */
 // P1
-/*
 arr1 = ["A", "B", "C"];
 console.log(arr1);
 
@@ -67,7 +65,6 @@ function reverseArray2(arr2){
 reverseArray2(arr2);
 
 // P2
-/*
 evenNumber = []
 oddNumber = []
 
@@ -84,9 +81,8 @@ function evenOdd(arr2){
 evenOdd(arr2);
 console.log(evenNumber);
 console.log(oddNumber);
-*/
+
 // P3
-/*
 evenNumbers = []
 
 function getRandomInt(){
@@ -149,18 +145,17 @@ function checkAllOddOut(){
 }
 
 checkAllOddOut();
-*/
+
 /* Objects */
 // P1
 var charles = {
   age: 28,
-  city: "Ho Chi Minh",
   fullName: "Charles Lee",
   companies: ["CoderSchool"],
 };
 
 function isCoderSchoolStaff(charles) {
-  if (person.company === "CoderSchool") {
+  if (charles.companies = "CoderSchool") {
     console.log("Is working at CoderSchool!");
   }
 }
@@ -169,20 +164,43 @@ isCoderSchoolStaff(charles);
 
 // P2
 function describePerson(charles) {
-  info = Object.keys(person);
-  console.log(`${person.fullName} + ${person.age} + ${person.companies}`);
+  console.log(`Full name: ${charles.fullName}, Age: ${charles.age}, Companies: ${charles.companies}`);
 }
 
-describePerson();
+describePerson(charles);
 
+// P3
 function logLastName(charles){
-  var full = person.fullName
-  var wordArray = full
+  var full = charles.fullName;
+  var wordArr = full.split(" ");
+  console.log("Last name: " + wordArr[1]);
 }
 
-/*
-Define a function, logLastName(), that takes an argument, person, and logs that person's last name.
-Define a function, getInitials(), that takes an argument, person, and logs that person's first and last name's initials.
-Define a function ,ageOneYear(), that takes an argument, person, and increased that person's age by one year.
-Define a function, getBirthYear(), that takes an argument, person, and determines their birth year based on their age and the current year.
-*/
+logLastName(charles);
+
+// P4
+function getInitials(charles){
+  var full = charles.fullName;
+  var wordArr = full.split(" ");
+  console.log("Initials: " + wordArr[0][0] + wordArr[1][0])
+}
+
+getInitials(charles);
+
+// P5
+function ageOneYear(charles){
+  older = charles.age + 1;
+  console.log(older);
+}
+
+ageOneYear(charles);
+
+// P6
+function getBirthYear(charles){
+  var today = new Date();
+  var currentYear = today.getFullYear();
+  var birthYear = currentYear - charles.age;
+  console.log(birthYear);
+}
+
+getBirthYear(charles);
