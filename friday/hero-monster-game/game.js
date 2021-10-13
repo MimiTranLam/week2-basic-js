@@ -4,18 +4,23 @@
   using graphics purchased from vectorstock.com
 */
 
-
-
 /* Initialization.
 Here, we create and add our "canvas" to the page.
 We also load all of our images.
 */
-const canvas = document.createElement('canvas');
+// const canvas = document.createElement('canvas');
+// const ctx = canvas.getContext('2d');
+// canvas.width = 500;
+// canvas.height = 500;
+// document.getElementsByTagName('body').appendChild(canvas);
+// canvas.style.bor = "grey";
+
+const canvas = document.getElementById('game-canvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 512;
-canvas.height = 480;
-canvas.style.bor = "grey";
-//document.getElementById('canvas').appendChild(canvas);
+canvas.width = 500;
+canvas.height = 500;
+// canvas.style.bor = "grey";
+document.body.appendChild(canvas);
 
 let bg = {};
 
@@ -55,14 +60,14 @@ function loadImages() {
 	};
 	hero.image.src = 'images/earth.png';
 
-	monsters.forEach((monster, i) => {
-		monster.image = new Image();
-		monster.image.onload = function () {
-			// show the monster image
-			monster.ready = true;
-		};
-		monster.image.src = `images/monster_${i + 1}.png`;
-	});
+	// monsters.forEach((monster, i) => {
+	// 	monster.image = new Image();
+	// 	monster.image.onload = function () {
+	// 		// show the monster image
+	// 		monster.ready = true;
+	// 	};
+	// 	monster.image.src = `images/monster_${i + 1}.png`;
+	// });
 }
 
 /**

@@ -5,9 +5,16 @@ body {
     width: 100vw;
     height: 100vh;
     text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: black;
 }
 
-#title {
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* #title {
     padding: 3rem;
     font-size: 3rem;
     font-weight: 800;
@@ -16,8 +23,78 @@ body {
     text-transform: uppercase;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: red;
+} */
+
+/* User input */
+#enter-name {
+    top: 40%;
+    left: calc(50% - (40vw/2));
+    position: absolute;
+    width: 40vw;
+    margin: auto;
+    padding: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 4vw;
+    font-weight: 600;
+    color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+#name-input {
+    width: inherit;
+    height: 10vh;
+    border: none;
+    margin: 1vw auto;
+    padding: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2vw;
+    color: chartreuse;
+    text-align: center;
+    background-color: rgb(95, 95, 95);
+    border-radius: 20px;
+    order: 2;
+}
+
+#name-input:focus {
+    outline: none;
+    border: 2px solid chartreuse;
+    border-radius: 20px;
+}
+
+/* Welcome message & start button */
+#welcome {
+    top: 40%;
+    left: calc(50% - (40vw/2));
+    position: absolute;
+    width: 40vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
+
+#message {
+    padding: 0;
+    color: red;
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+#start {
+    padding: 1rem;
+    border: 2px solid red;
+    border-radius: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: red;
+    font-size: 3rem;
+}
+
+/* Canvas */
 canvas {
     border: 1px solid #d3d3d3;
     background-color: #f1f1f1;
